@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Coordinator Dashboard - 3D Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">Program Dashboard</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#ministries" class="nav-link">Ministries</a></li>
+                <li><a href="#updates" class="nav-link">Daily Updates</a></li>
+                <li><a href="#admin" class="nav-link">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <div class="canvas-container" id="canvas-container"></div>
+        <div class="home-content">
+            <div class="hero-content">
+                <h1 class="program-title" data-text="FAITH & LEADERSHIP PROGRAM">FAITH & LEADERSHIP PROGRAM</h1>
+                <p class="program-theme">"United in Purpose, Strengthened in Faith"</p>
+                <div class="program-details">
+                    <p><span>📅 Date:</span> December 2024</p>
+                    <p><span>📍 Location:</span> Main Conference Center</p>
+                </div>
+                <div class="cta-buttons">
+                    <button class="cta-btn" onclick="navigateTo('ministries')">View Ministries</button>
+                    <button class="cta-btn" onclick="navigateTo('updates')">Daily Updates</button>
+                    <button class="cta-btn" onclick="navigateTo('leadership')">Leadership</button>
+                </div>
+            </div>
+            <div class="floating-cards" id="floating-cards"></div>
+        </div>
+    </section>
+
+    <!-- Ministries Overview Page -->
+    <section id="ministries" class="page">
+        <div class="page-header">
+            <h2>All Ministries</h2>
+            <p class="subtitle">Explore each ministry and their dedicated teams</p>
+        </div>
+        <div class="ministries-grid" id="ministries-grid">
+            <!-- Ministry cards will be dynamically generated -->
+        </div>
+    </section>
+
+    <!-- Individual Ministry Page -->
+    <section id="ministry-detail" class="page">
+        <button class="back-btn" onclick="navigateTo('ministries')">← Back to Ministries</button>
+        <div class="ministry-detail-container" id="ministry-detail-container">
+            <!-- Ministry details will be dynamically loaded -->
+        </div>
+    </section>
+
+    <!-- Person Profile Page -->
+    <section id="person-profile" class="page">
+        <button class="back-btn" onclick="goBack()">← Back</button>
+        <div class="person-profile-container" id="person-profile-container">
+            <!-- Person profile will be dynamically loaded -->
+        </div>
+    </section>
+
+    <!-- Daily Updates Page -->
+    <section id="updates" class="page">
+        <div class="page-header">
+            <h2>Daily Updates & Announcements</h2>
+            <p class="subtitle">Stay informed about program activities and announcements</p>
+        </div>
+        <div class="updates-container">
+            <div class="updates-timeline" id="updates-timeline">
+                <!-- Updates will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Panel -->
+    <section id="admin" class="page">
+        <div class="admin-container">
+            <div class="admin-login" id="admin-login">
+                <h2>Admin Login</h2>
+                <form id="login-form">
+                    <input type="text" id="admin-username" placeholder="Username" required>
+                    <input type="password" id="admin-password" placeholder="Password" required>
+                    <button type="submit" class="admin-btn">Login</button>
+                </form>
+            </div>
+            <div class="admin-dashboard" id="admin-dashboard" style="display: none;">
+                <h2>Admin Dashboard</h2>
+                <div class="admin-tabs">
+                    <button class="admin-tab active" onclick="showAdminTab('ministries')">Manage Ministries</button>
+                    <button class="admin-tab" onclick="showAdminTab('updates')">Manage Updates</button>
+                    <button class="admin-tab" onclick="showAdminTab('members')">Manage Members</button>
+                </div>
+                <div class="admin-content" id="admin-content">
+                    <!-- Admin content will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
