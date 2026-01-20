@@ -10,21 +10,55 @@ const ministriesList = [
     { id: 'general', name: 'General Team', icon: '👥', description: 'Overall coordination and program management' },
     { id: 'program', name: 'Program Team', icon: '📋', description: 'Event scheduling and program structure' },
     { id: 'mobilization', name: 'Mobilization Team', icon: '🚀', description: 'Outreach and participant engagement' },
-    { id: 'intercession', name: 'Intercession Team', icon: '🙏', description: 'Prayer support and spiritual guidance' },
+    { id: 'intercession', name: 'Intercession Ministry', icon: '🙏', description: 'Prayer support and spiritual guidance' },
     { id: 'media', name: 'Media Team', icon: '📷', description: 'Photography, videography, and content creation' },
     { id: 'volunteers', name: 'Volunteers Team', icon: '🤝', description: 'Volunteer coordination and management' },
     { id: 'finance', name: 'Finance Team', icon: '💰', description: 'Budget management and financial oversight' },
     { id: 'local-arrangement', name: 'Local Arrangement Team', icon: '🏛️', description: 'Venue and logistics coordination' },
     { id: 'security', name: 'Security Team', icon: '🛡️', description: 'Safety and security management' },
-    { id: 'theatre', name: 'Theatre Team', icon: '🎭', description: 'Dramatic performances and presentations' },
-    { id: 'food', name: 'Food Team', icon: '🍽️', description: 'Catering and meal arrangements' },
+    { id: 'theatre', name: 'Theatre Ministry', icon: '🎭', description: 'Dramatic performances and presentations' },
+    { id: 'food', name: 'Food Ministry', icon: '🍽️', description: 'Catering and meal arrangements' },
     { id: 'resource-caring', name: 'Resource Caring Team', icon: '📦', description: 'Resource management and distribution' },
-    { id: 'liturgy', name: 'Liturgy Team', icon: '📿', description: 'Worship services and liturgical elements' },
-    { id: 'confession', name: 'Confession Team', icon: '💒', description: 'Sacramental confession support' },
-    { id: 'counseling', name: 'Counseling Team', icon: '💬', description: 'Personal counseling and support' },
-    { id: 'decoration', name: 'Decoration Team', icon: '🎨', description: 'Visual design and venue decoration' },
-    { id: 'music', name: 'Music Team', icon: '🎵', description: 'Musical performances and sound management' }
+    { id: 'liturgy', name: 'Liturgy Team', icon: '⛪', description: 'Worship services and liturgical elements' },
+    { id: 'confession', name: 'Confession,Counseling Team', icon: '💒', description: 'Sacramental confession support' },
+    { id: 'counseling', name: 'Av Ministry', icon: '🔊📽️', description: 'Personal counseling and support' },
+    { id: 'decoration', name: 'Arts Ministry', icon: '🎨', description: 'Visual design and venue decoration' },
+    { id: 'music', name: 'Music Ministry', icon: '🎵', description: 'Musical performances and sound management' }
 ];
+// ===== EDIT NAMES HERE ONLY =====
+
+// TOTAL NAMES REQUIRED:
+// 17 ministries × (1 Coordinator + 1 Assistant + 15 Members) = 289 names
+
+const PEOPLE_NAMES = [
+    "Bryan Maria Roy", "Amal Roy", "Dony Simon", "Sneha Anna Jacob",
+    "Dario George", "Sr.Lissa", "Rosemary mathew", "Angeleena Binoy",
+    "Raisy", "Jismon K Baby", "","","","","","","","Sneha Anna","Alent Siby","Joshna Jojo","Tiya","","","","","","","","","","","","","","Kevin Geo Saji","Sona Sunny",
+    "Eilin","Christy Bobby","Judit Jeby","Angelina Rose","Alen Joji","Arpitha Bose","","","","","","","","","","Rosemary","Dario","Ash","Jovan","Sibin","Aksa Vinod","",
+    "","","","","","","","","","","Austin","Nithin","Joel Williams",
+    "Joshua","Ashik Sibi","Ann Maria Jaison","","","","","","","", "","","","","Jismon","Ashly Vinod", "","","","","","","", "","","","","","","", "","Angeleena","Riya",
+    "Alvia","Angel Fernandes","Catherine Susan","Noel Mathew","Alan GEO Shaji","Godwin" ,"Adina Joby ","Christeena John","","","","","","","","Melvin Saji","Nithin","","",
+    "","","","","","","","","","","","","","Deon","","Elisha Anto","Athul George","","","","","","","","","","","","","",,"","","","","","","","","","","","","",
+    "","","","Jose","","Alan Manu","Lewin Sha Jose","","","","","","","","","","","","","","Sona Mary","","Merin Joji","Agnus Christopher","Jubel","","","","","","","","","","","","","Sr Lisa",
+    ,"Anuya Rajeev","Jacob Thomas","Albin brother","","","","","","","","","","","","","Sr Lisa","","Anuya Rajeev","Jacob Thomas","Albin brother","","","","","","","","","","","",
+    "","Sona Sunny","Lisa Maria Philip","Alwin L","Anto","Jacob Gigi","Maria Elsa Abraham",
+    "Ruben","Abraham Dani","","","","","","","","","","Anna Babu","Alwin C J","Alanteena","Annitmaria","Ashlin","Feba","Layana","Neha Rose","Aleena Santhosh","Angel","Richu","Elna",
+    "Neha Joshy","","","","","Mannah","Angeleena","Dan","Ann Maria Thankachan","Alan GEO Shaji BHM","Alphonse","Raphel","Tiya"
+
+    // 👆 ADD ALL 289 UNIQUE NAMES HERE
+];
+
+// This index will auto-increment safely
+let nameIndex = 0;
+
+// Helper to get next unique name
+function getNextName() {
+    if (nameIndex >= PEOPLE_NAMES.length) {
+        return "Name Missing";
+    }
+    return PEOPLE_NAMES[nameIndex++];
+}
+
 
 // Initialize ministry data with sample members
 function initializeMinistryData() {
@@ -32,24 +66,24 @@ function initializeMinistryData() {
         const firstLetter = ministry.name.charAt(0);
         ministryData[ministry.id] = {
             ...ministry,
-            coordinator: {
-                name: `Coordinator ${ministry.name}`,
-                photo: firstLetter,
-                contact: `coordinator.${ministry.id}@program.com`,
-                role: 'Coordinator'
-            },
-            assistantCoordinator: {
-                name: `Assistant ${ministry.name}`,
-                photo: firstLetter,
-                contact: `assistant.${ministry.id}@program.com`,
-                role: 'Assistant Coordinator'
-            },
-            members: generateTeamMembers(ministry, 15)
+          coordinator: {
+    name: getNextName(),   // ✅ REAL NAME
+    photo: firstLetter,
+    role: 'Coordinator'
+},
+assistantCoordinator: {
+    name: getNextName(),   // ✅ REAL NAME
+    photo: firstLetter,
+    role: 'Assistant Coordinator'
+},
+members: generateTeamMembers(ministry, 15)
+
         };
     });
 }
 
 function generateTeamMembers(ministry, count) {
+    
     const responsibilities = [
         'Event Coordination', 'Logistics Management', 'Team Communication',
         'Resource Allocation', 'Quality Control', 'Participant Engagement',
@@ -62,7 +96,7 @@ function generateTeamMembers(ministry, count) {
     for (let i = 1; i <= count; i++) {
         members.push({
             id: `${ministry.id}-member-${i}`,
-            name: `${ministry.name} Member ${i}`,
+name: getNextName(),   // ✅ REAL NAME
             photo: ministry.name.charAt(0),
             responsibility: responsibilities[(i - 1) % responsibilities.length],
             role: 'Team Member',
@@ -424,28 +458,21 @@ function showPersonProfile(personId) {
 let dailyUpdates = [
     {
         id: 1,
-        date: '2024-12-15',
-        title: 'Program Launch Day',
-        content: 'Welcome to our Faith & Leadership Program! Today marks the beginning of an incredible journey of growth and unity.',
-        ministry: 'General Team',
+        date: '2026-1-20',
+        title: 'Online-Consultant Meeting',
+        content: '“A consultation meeting involving three ministries will take place.”',
+        ministry: 'Mobilization,Intercession,Media',
         priority: 'normal'
     },
     {
         id: 2,
-        date: '2024-12-14',
-        title: 'Final Preparations Complete',
-        content: 'All teams have completed their final preparations. The venue is ready, and all logistics are in place.',
-        ministry: 'Local Arrangement Team',
-        priority: 'normal'
-    },
-    {
-        id: 3,
-        date: '2024-12-13',
-        title: 'Important: Registration Deadline',
-        content: 'Final registration deadline is approaching. Please ensure all participants are registered by end of day.',
-        ministry: 'Mobilization Team',
+        date: '',
+        title: 'Volunteers Training',
+        content: '“Volunteers training will take place at the end of the month. The day will also include an anointing for the volunteers as they prepare for their ministry service.” ',
+        ministry: 'For all ministries',
         priority: 'emergency'
-    }
+    },
+    
 ];
 
 function loadUpdatesPage() {
