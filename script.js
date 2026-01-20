@@ -33,7 +33,7 @@ const ministriesList = [
 const PEOPLE_NAMES = [
     "Bryan Maria Roy", "Amal Roy", "Dony Simon", "Sneha Anna Jacob",
     "Dario George", "Sr.Lissa", "Rosemary mathew", "Angeleena Binoy",
-    "Raisy", "Jismon K Baby", "","","","","","","","Sneha Anna","Alent Siby","Joshna Jojo","Tiya","","","","","","","","","","","","","","Kevin Geo Saji","Sona Sunny",
+    "Raisy", "Jismon K Baby", "","","","","","","","Sneha Anna","Alent Siby","Joshna Jojo","Taniya","","","","","","","","","","","","","","Kevin Geo Saji","Sona Sunny",
     "Eilin","Christy Bobby","Judit Jeby","Angelina Rose","Alen Joji","Arpitha Bose","","","","","","","","","","Rosemary","Dario","Ash","Jovan","Sibin","Aksa Vinod","",
     "","","","","","","","","","","Austin","Nithin","Joel Williams",
     "Joshua","Ashik Sibi","Ann Maria Jaison","","","","","","","", "","","","","Jismon","Ashly Vinod", "","","","","","","", "","","","","","","", "","Angeleena","Riya",
